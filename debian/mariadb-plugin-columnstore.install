@@ -18,7 +18,7 @@ usr/bin/ProcMon
 usr/bin/ServerMonitor
 usr/bin/StorageManager
 usr/bin/WriteEngineServer
-usr/bin/alarmReport.sh
+usr/bin/dbmsReport.sh
 usr/bin/autoConfigure
 usr/bin/bulklogReport.sh
 usr/bin/clearShm

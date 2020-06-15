@@ -5,7 +5,7 @@ etc/columnstore/ErrorMessage.txt
 etc/columnstore/MessageFile.txt
 etc/columnstore/ProcessConfig.xml
 etc/columnstore/storagemanager.cnf
-etc/mysql/conf.d/columnstore.cnf
+etc/mysql/mariadb.conf.d/columnstore.cnf
 usr/bin/DDLProc
 usr/bin/DMLProc
 usr/bin/ExeMgr

@@ -977,8 +977,7 @@ trx_start_low(
 	ut_a(trx->lock.table_locks.empty());
 
 	/* No other thread can access this trx object through rw_trx_hash,
-	still it can be found through trx_sys.trx_list, which means state
-	change must be protected by e.g. trx->mutex.
+	still it can be found through trx_sys.trx_list.
 
 	For now we update it without mutex protection, because original code
 	did it this way. It has to be reviewed and fixed properly. */
@@ -1342,10 +1341,7 @@ inline void trx_t::commit_in_memory(const mtr_t *mtr)
 
     /* This state change is not protected by any mutex, therefore
     there is an inherent race here around state transition during
-    printouts. We ignore this race for the sake of efficiency.
-    However, the trx_sys_t::mutex will protect the trx_t instance
-    and it cannot be removed from the trx_list and freed
-    without first acquiring the trx_sys_t::mutex. */
+    printouts. We ignore this race for the sake of efficiency. */
     ut_ad(trx_state_eq(this, TRX_STATE_ACTIVE));
 
     MONITOR_INC(MONITOR_TRX_NL_RO_COMMIT);
